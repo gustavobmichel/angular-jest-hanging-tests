@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AnotherService } from './another.service';
 import { HelloService } from './hello.service';
 
 @Component({
@@ -6,7 +7,10 @@ import { HelloService } from './hello.service';
   templateUrl: './test.component.html',
 })
 export class TestComponent implements OnInit {
-  constructor(private _helloService: HelloService) {}
+  constructor(
+    private _helloService: HelloService,
+    private _anotherService: AnotherService
+  ) {}
 
   hello: string;
 
