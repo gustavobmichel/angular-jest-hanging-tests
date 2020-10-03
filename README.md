@@ -6,6 +6,8 @@ Based on this [thread](https://github.com/thymikee/jest-preset-angular/issues/28
 
 As soon as I add it, the test ends up hanging.
 
+In order to test it, you just need to run `npm install` and `ng test`.
+
 ## Other information
 
 I believe this was introduced in the latest versions of Jest, because once I rolled back to older versions of Jest and Preset it is not an issue.
