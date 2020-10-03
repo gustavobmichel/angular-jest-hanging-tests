@@ -10,13 +10,13 @@ describe('TestComponent', () => {
   let fixture: ComponentFixture<TestComponent>;
 
   let helloServiceStub = {
-    test: () => of('Test'),
+    //test: () => of('Test'), // it works when removing the comment for this
   };
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TestComponent],
-      //providers: [{ provide: HelloService, useValue: helloServiceStub }], // it works when removing the comment for this
+      providers: [{ provide: HelloService, useValue: helloServiceStub }],
     }).compileComponents();
   });
 
