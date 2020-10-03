@@ -1,27 +1,19 @@
-# AngularJest
+# Description of the issue
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
+I have an example where a service is injected into a component without the stub/mock for the service, and the test ends up hanging.
 
-## Development server
+Based on this [thread](https://github.com/thymikee/jest-preset-angular/issues/288), we need to set `"emitDecoratorMetadata": true,` in the `tsconfig.spec.json`.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+As soon as I add it, the test ends up hanging.
 
-## Code scaffolding
+## Other information
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+I believe this was introduced in the latest versions of Jest, because once I rolled back to older versions of Jest and Preset it is not an issue.
 
-## Build
+I rolled back to a version of Jest 26.0.1 and keeping the dependencies on that version it is no longer an issue.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+However, that means I cannot re-generate the `package-lock.json` because it will update to a version of 26.1+ and this is when I started noticing the issue.
 
-## Running unit tests
+# Version
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Angular 10
